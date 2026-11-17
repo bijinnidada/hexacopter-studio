@@ -1,0 +1,154 @@
+{
+  "passed": true,
+  "log": [
+    {
+      "step": "initial",
+      "flightPhase": "grounded",
+      "altitude": 0,
+      "hudHidden": true,
+      "demo": null
+    },
+    {
+      "step": "ascending",
+      "altitude": 0.545,
+      "rotorLevel": 1.89,
+      "cameraY": 1.2039743379066556
+    },
+    {
+      "step": "hovering",
+      "altitude": 2.129,
+      "drawCalls": 192,
+      "cameraY": 2.2340264673280297
+    },
+    {
+      "step": "landed",
+      "altitude": 0,
+      "rotorLevel": 0.22
+    },
+    {
+      "step": "ring-demo",
+      "ended": null,
+      "restored": {
+        "lever": 0,
+        "ringY": 0,
+        "ringZ": 0,
+        "cameraY": 0,
+        "cameraX": 0,
+        "speakerX": 0,
+        "marker": false
+      }
+    },
+    {
+      "step": "camera-demo",
+      "scanYaw": 0.06644104223210591,
+      "restored": {
+        "lever": 0,
+        "ringY": 0,
+        "ringZ": 0,
+        "cameraY": 0,
+        "cameraX": 0,
+        "speakerX": 0,
+        "marker": false
+      }
+    },
+    {
+      "step": "speaker-demo",
+      "waves": [
+        {
+          "visible": true,
+          "opacity": 0.35852400000000323,
+          "scale": 1.1191399999999867
+        },
+        {
+          "visible": true,
+          "opacity": 0.20519066666667002,
+          "scale": 1.7524733333333193
+        },
+        {
+          "visible": true,
+          "opacity": 0.051857333333336406,
+          "scale": 2.385806666666654
+        }
+      ]
+    },
+    {
+      "step": "tutorial-controls",
+      "pausedAt": 1.03,
+      "resumedAt": 1.73,
+      "replayedAt": 0.03
+    },
+    {
+      "step": "auto-explode",
+      "mid": 0.9652793268042741,
+      "callouts": 4,
+      "final": 1
+    },
+    {
+      "step": "keyboard",
+      "takeoff": "Space",
+      "hover": true,
+      "landing": true,
+      "views": "1-5"
+    },
+    {
+      "step": "mutual-exclusion",
+      "toast": "请先完成降落，再播放载荷教学",
+      "phase": "hovering"
+    },
+    {
+      "step": "airdrop",
+      "armed": "idle",
+      "fallingY": 2.47,
+      "landed": [
+        -0.1,
+        0.144,
+        1
+      ],
+      "drawCalls": 196,
+      "triangles": 113402
+    },
+    {
+      "step": "airdrop-reset",
+      "phase": "grounded",
+      "ring": [
+        0,
+        0.615,
+        0.02
+      ]
+    },
+    {
+      "step": "airdrop-mobile",
+      "button": {
+        "hidden": false,
+        "left": 270.1875,
+        "right": 366,
+        "top": 184,
+        "bottom": 218,
+        "panelBottom": 608.15625,
+        "overflow": false
+      },
+      "frame": {
+        "ring": [
+          0.04885132726828072,
+          -0.17856609752364583
+        ],
+        "body": [
+          -0.04251843754230141,
+          0.24826335040488415
+        ],
+        "overflow": false
+      }
+    },
+    {
+      "step": "airdrop-reduced-motion",
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "airdrop": "dropping"
+      },
+      "landed": true
+    }
+  ],
+  "errors": []
+}

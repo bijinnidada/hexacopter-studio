@@ -1,0 +1,18 @@
+{
+  "subject": "Six-axis hexacopter reference reconstruction",
+  "primaryDomain": "object",
+  "classificationConfidence": 1.0,
+  "observations": {
+    "macro": ["Bilateral elongated rounded shell, about 1.68 length to width in structural plan", "Six horizontal tubular booms in three mirrored pairs", "Six cylindrical vertical-axis motors, each with exactly two swept blades", "Two landing skids connected by four inclined tubular struts in the second render"],
+    "meso": ["Upper white convex fairing and blue lower tray separated by a circumferential seam", "Circular white antenna puck atop rear fuselage", "Elongated dark-blue inset along both upper lateral shoulders", "Black recessed front sensor opening", "Blue arm-root collars and blue motor mounts", "Silver motor barrels with black top ventilation rings"],
+    "micro": ["White blade tips", "Motor cap bolts", "Radial cooling recesses", "Arm clamp screws", "Panel fasteners", "Skid rubber feet and joints", "Printed Chinese side marking 翔云智航", "White antenna rim step", "Small side access-panel seam", "Short gray side slot", "Bottom equipment fasteners"],
+    "relationships": ["Each boom socket overlaps the fuselage at y=1.19", "Each boom overlaps a motor mount, with rotor pivot coaxial to the vertical motor shaft", "Landing struts embed into the lower tray and connect to continuous skid runners", "Antenna base contacts the rear upper shell"],
+    "materials": ["White dielectric painted polymer: metalness 0, roughness about 0.28, clearcoat 0.3", "Blue coated mounts: metalness 0.3, roughness 0.32", "Silver bare aluminum: metalness 0.9, roughness 0.25", "Graphite rotor blades: metalness 0.2, roughness 0.38", "Black rubber feet: metalness 0, roughness 0.7"]
+  },
+  "coordinateSystem": {"up":"+Y", "forward":"+Z", "units":"relative, not manufacturing dimensions"},
+  "motorCentersXZ": [[1.04,1.84],[2.11,0],[1.04,-1.84],[-1.04,-1.84],[-2.11,0],[-1.04,1.84]],
+  "referencePriority": {"layout":"structural orthographic", "finishAndLandingGear":"second rendered image", "alternative":"first render has no landing gear; viewer will permit hiding gear"},
+  "uncertainties": ["Images show different concept variants, not exact matching CAD and finish", "No actual dimensions or material measurements supplied", "Hidden electronics, internal wiring and exact underside contours unknown", "Logo bird mark will be a procedural approximation; lettering can be reproduced"],
+  "suitability": {"verdict":"conditional", "silhouette":0.95,"partVisibility":0.88,"materialVisibility":0.85,"multiViewAgreement":0.8,"reason":"Suitable for a visually matched interactive procedural prop; not manufacturing CAD or inverse reconstruction"},
+  "qualityContract": {"critical":["Exactly six booms, six motors, twelve blades", "Three mirrored pairs with diagonal fore/aft arms and lateral center arms", "Continuous elongated white shell, blue inserts and black nose", "Stepped circular rear top antenna", "Connected two-skid landing gear"],"reviewViews":["reference three-quarter","top","front","right","rear","left"],"notClaimed":["manufacturing accuracy","flight simulation","exact hidden geometry"]}
+}

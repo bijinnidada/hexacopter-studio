@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3f4f2" />
+    <meta name="description" content="翔云智航六轴无人机三维结构查看器。按图片比例重建，支持视角切换、部件检查、航电舱与可替换下挂载荷。" />
+    <title>翔云智航 · 六轴无人机三维研究</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b354a'/%3E%3Cg stroke='%23edf3f5' stroke-width='3' fill='none'%3E%3Cpath d='M32 12v40M15 22l34 20M15 42l34-20'/%3E%3Ccircle cx='32' cy='12' r='6'/%3E%3Ccircle cx='32' cy='52' r='6'/%3E%3Ccircle cx='15' cy='22' r='6'/%3E%3Ccircle cx='49' cy='22' r='6'/%3E%3Ccircle cx='15' cy='42' r='6'/%3E%3Ccircle cx='49' cy='42' r='6'/%3E%3C/g%3E%3Cpath d='m32 24 7 4v8l-7 4-7-4v-8z' fill='%237ea8c5'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <symbol id="icon-aircraft" viewBox="0 0 48 48">
+          <path d="M24 9v30M11 16l26 16M11 32l26-16" />
+          <circle cx="24" cy="8" r="5" /><circle cx="24" cy="40" r="5" />
+          <circle cx="10" cy="16" r="5" /><circle cx="38" cy="16" r="5" />
+          <circle cx="10" cy="32" r="5" /><circle cx="38" cy="32" r="5" />
+          <path d="m24 18 5 3v6l-5 3-5-3v-6z" />
+        </symbol>
+        <symbol id="icon-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="m3 16 5-5 5 5 3-3 5 5" /><circle cx="15.5" cy="8.5" r="1.5" /></symbol>
+        <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M8 5 9.5 3h5L16 5h4a1 1 0 0 1 1 1v13H3V6a1 1 0 0 1 1-1z" /><circle cx="12" cy="12" r="4" /></symbol>
+        <symbol id="icon-reset" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1 7M4 4v6h6" /></symbol>
+        <symbol id="icon-orbit" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-30 12 12)" /><circle cx="12" cy="12" r="3" /><path d="m17 3 3 2-1 4" /></symbol>
+        <symbol id="icon-rotor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2" /><path d="M10 10C5 10 3 8 4 6c1-3 6-2 8 4m2 4c5 0 7 2 6 4-1 3-6 2-8-4M14 10c0-5 2-7 4-6 3 1 2 6-4 8m-4 2c0 5-2 7-4 6-3-1-2-6 4-8" /></symbol>
+        <symbol id="icon-cube" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7zM3 7l9 5 9-5M12 12v10M7.5 4.5l9 5" /></symbol>
+        <symbol id="icon-top" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="1" /><path d="M12 2v5m0 10v5M2 12h5m10 0h5" /></symbol>
+        <symbol id="icon-front" viewBox="0 0 24 24"><path d="M3 7h18v11H3zM7 7V4m10 3V4M7 18v3m10-3v3M8 12h8" /></symbol>
+        <symbol id="icon-side" viewBox="0 0 24 24"><path d="m8 4 9 3v13l-9-3zM4 20h16M4 4v13" /></symbol>
+        <symbol id="icon-payload" viewBox="0 0 24 24"><path d="M5 4h14v6H5zM12 10v3.5" /><circle cx="12" cy="16.5" r="2.8" /><path d="M9.4 16.5h5.2M12 14.2v4.6" /></symbol>
+        <symbol id="icon-ring" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.4" /><circle cx="12" cy="12" r="3.5" /><path d="M5.4 8h2.2m8.8 0h2.2M5.4 16h2.2m8.8 0h2.2" /></symbol>
+        <symbol id="icon-pointer" viewBox="0 0 24 24"><path d="m5 3 13 9-6 1-3 6zM13 14l4 6" /></symbol>
+        <symbol id="icon-mouse" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="6" /><path d="M12 2v7" /></symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6" /></symbol>
+        <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5" /></symbol>
+        <symbol id="icon-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7z" /></symbol>
+        <symbol id="icon-pause" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14" /></symbol>
+        <symbol id="icon-takeoff" viewBox="0 0 24 24"><path d="M4 20h16M12 3v10M8 8l4-5 4 5M7 16l5-3 5 3" /></symbol>
+      </defs>
+    </svg>
+
+    <div class="workbench">
+      <header class="masthead">
+        <a class="brand" href="/" aria-label="翔云智航，三维结构查看器首页">
+          <span class="brand-mark"><svg aria-hidden="true"><use href="#icon-aircraft" /></svg></span>
+          <span class="brand-copy"><strong>翔云智航</strong><span lang="en">HEXACOPTER / 3D STUDY</span></span>
+        </a>
+        <div class="header-context"><span class="status-dot"></span>参考重建<span class="context-divider">/</span><span class="technical">SIX-AXIS</span></div>
+        <div class="header-actions">
+          <button id="reference-open" class="button button-quiet" type="button"><svg aria-hidden="true"><use href="#icon-image" /></svg><span>参考图片</span></button>
+          <button id="screenshot" class="button button-primary" type="button"><svg aria-hidden="true"><use href="#icon-camera" /></svg><span>保存画面</span></button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="scene-panel" aria-label="六轴无人机交互式三维画布">
+          <div class="viewport-wrap"><div id="viewport" aria-label="无人机三维模型：拖动旋转，滚轮缩放，点击部件查看说明"></div></div>
+          <div class="scene-heading scene-overlay">
+            <p class="eyebrow"><span class="mini-rule"></span>AIRFRAME STUDY <span>/ 001</span></p>
+            <h1>六轴无人机<span class="title-dot">.</span></h1>
+            <p class="scene-subtitle">白蓝机身 · 对称六轴构型</p>
+          </div>
+
+          <nav class="view-controls" aria-label="模型观察视角">
+            <button class="view-button active" type="button" data-view="perspective" aria-pressed="true" title="透视视角"><svg aria-hidden="true"><use href="#icon-cube" /></svg><span>透视</span></button>
+            <button class="view-button" type="button" data-view="payload" aria-pressed="false" title="载荷视角"><svg aria-hidden="true"><use href="#icon-payload" /></svg><span>载荷</span></button>
+            <button class="view-button" type="button" data-view="top" aria-pressed="false" title="俯视视角"><svg aria-hidden="true"><use href="#icon-top" /></svg><span>俯视</span></button>
+            <button class="view-button" type="button" data-view="front" aria-pressed="false" title="正视视角"><svg aria-hidden="true"><use href="#icon-front" /></svg><span>正视</span></button>
+            <button class="view-button" type="button" data-view="side" aria-pressed="false" title="侧视视角"><svg aria-hidden="true"><use href="#icon-side" /></svg><span>侧视</span></button>
+          </nav>
+          <div id="flight-hud" class="flight-hud" aria-hidden="true" hidden><span class="status-dot"></span><span id="flight-hud-phase" class="flight-hud-phase">旋翼启动 · 爬升</span><span class="flight-hud-divider phase-divider"></span><b id="flight-hud-altitude">0.0</b><span class="flight-hud-unit">ALT / M</span><span class="flight-hud-divider"></span><span class="flight-hud-metric">BAT <b id="flight-hud-battery">100</b>%</span><span class="flight-hud-metric flight-hud-gps">GPS <b id="flight-hud-gps">12</b></span><span class="flight-hud-divider"></span><span class="flight-hud-metric flight-hud-time">T+<b id="flight-hud-time">00:00</b></span></div>
+          <button id="airdrop-toggle" class="airdrop-button" type="button" aria-label="抛投救生圈" hidden><svg aria-hidden="true"><use href="#icon-ring" /></svg><span id="airdrop-label">抛投救生圈</span></button>
+
+          <div id="loading" role="status" aria-live="polite"><span class="loading-spinner" aria-hidden="true"></span><span class="loading-copy">正在构建三维模型<span class="loading-detail">PREPARING AIRFRAME</span><span class="loading-track" aria-hidden="true"><span id="loading-progress"></span></span></span></div>
+
+          <div class="scene-spec scene-overlay"><span class="spec-line"></span><span><b>06</b> 六轴</span><span class="spec-divider"></span><span><b>12</b> 桨叶</span><span class="spec-caption">RADIAL CONFIGURATION</span></div>
+          <aside id="tutorial" class="tutorial-overlay" aria-label="载荷使用动画教程" hidden>
+            <div class="tutorial-heading">
+              <div><p class="eyebrow">PAYLOAD TUTORIAL / <span id="tutorial-code">LR</span></p><h2 id="tutorial-title">载荷教学</h2></div>
+              <div class="tutorial-actions">
+                <button id="tutorial-pause" class="icon-button" type="button" aria-label="暂停教学" title="暂停教学"><svg aria-hidden="true"><use href="#icon-pause" /></svg></button>
+                <button id="tutorial-replay" class="icon-button" type="button" aria-label="重播教学" title="重播教学"><svg aria-hidden="true"><use href="#icon-reset" /></svg></button>
+                <button id="tutorial-close" class="icon-button" type="button" aria-label="结束载荷教学" title="结束教学"><svg aria-hidden="true"><use href="#icon-close" /></svg></button>
+              </div>
+            </div>
+            <ol id="tutorial-steps" class="tutorial-steps"></ol>
+            <p id="tutorial-caption" class="tutorial-caption"></p>
+            <div class="tutorial-track" aria-hidden="true"><span id="tutorial-progress"></span></div>
+          </aside>
+          <div class="scene-bottom scene-overlay">
+            <div class="interaction-hints"><span><svg aria-hidden="true"><use href="#icon-pointer" /></svg><span class="desktop-hint">拖动旋转</span><span class="touch-hint">单指旋转</span></span><span><svg aria-hidden="true"><use href="#icon-mouse" /></svg><span class="desktop-hint">滚轮缩放</span><span class="touch-hint">双指缩放</span></span><span class="selection-hint">点击部件查看详情</span><span class="keyboard-hint"><kbd>Space</kbd>起降</span><span class="keyboard-hint"><kbd>1–5</kbd>切视角</span></div>
+            <div class="orientation" aria-hidden="true"><span class="axis axis-y">Y</span><span class="axis axis-z">Z</span><span class="axis axis-x">X</span><span class="axis-origin"></span></div>
+          </div>
+          <div class="scene-footnote"><span><i class="status-dot"></i>按图片比例重建 · 非工程尺寸</span><span class="technical">MODEL SPACE <span class="footnote-cross">+</span></span></div>
+        </section>
+
+        <aside class="inspector" aria-label="模型检查器">
+          <div class="inspector-heading"><div><svg aria-hidden="true"><use href="#icon-cube" /></svg><h2>模型检查器</h2></div><div class="inspector-tools"><button id="sections-toggle" class="sections-toggle" type="button" aria-label="展开全部检查器分区">展开全部</button><span class="eyebrow">INSPECTOR</span></div></div>
+          <div class="inspector-scroll">
+            <section class="control-section is-collapsed" aria-labelledby="display-heading">
+              <div class="section-heading"><h3 id="display-heading">显示与动态</h3><span class="section-index">01</span><button class="section-toggle" type="button" aria-expanded="false" aria-controls="display-body" aria-label="展开显示与动态"></button></div>
+              <div class="section-body" id="display-body">
+              <div class="animation-controls">
+                <button id="spin-toggle" type="button" class="button control-button" aria-pressed="false"><svg aria-hidden="true"><use href="#icon-rotor" /></svg><span>旋翼演示</span><i class="button-indicator" aria-hidden="true"></i></button>
+                <button id="auto-toggle" type="button" class="button control-button" aria-pressed="false"><svg aria-hidden="true"><use href="#icon-orbit" /></svg><span>自动环绕</span><i class="button-indicator" aria-hidden="true"></i></button>
+              </div>
+              <p class="control-disclaimer">旋翼仅作视觉演示，不代表真实飞控</p>
+              <div class="toggle-list">
+                <label class="toggle-row" for="gear-toggle"><span>显示起落架</span><input id="gear-toggle" type="checkbox" role="switch" checked /><span class="switch-track" aria-hidden="true"></span></label>
+                <label class="toggle-row" for="cabin-toggle"><span>舱内结构</span><input id="cabin-toggle" type="checkbox" role="switch" /><span class="switch-track" aria-hidden="true"></span></label>
+                <label class="toggle-row" for="wire-toggle"><span>线框模式</span><input id="wire-toggle" type="checkbox" role="switch" /><span class="switch-track" aria-hidden="true"></span></label>
+                <label class="toggle-row" for="labels-toggle"><span>部件标记</span><input id="labels-toggle" type="checkbox" role="switch" checked /><span class="switch-track" aria-hidden="true"></span></label>
+              </div>
+              <div class="explode-control"><div class="range-heading"><label for="explode">结构分解</label><span class="range-tools"><output id="explode-value" for="explode">0%</output><button id="explode-auto" class="range-auto" type="button" title="自动演示结构分解" aria-label="自动演示结构分解">自动</button></span></div><input id="explode" type="range" min="0" max="100" step="1" value="0" aria-label="结构分解程度" /><div class="range-labels"><span>完整装配</span><span>展开结构</span></div></div>
+              </div>
+            </section>
+
+            <section class="control-section flight-section is-collapsed" aria-labelledby="flight-heading">
+              <div class="section-heading"><h3 id="flight-heading">飞行演示</h3><span class="section-index">02</span><button class="section-toggle" type="button" aria-expanded="false" aria-controls="flight-body" aria-label="展开飞行演示"></button></div>
+              <div class="section-body" id="flight-body">
+              <button id="flight-toggle" class="button flight-button" type="button" aria-pressed="false"><svg aria-hidden="true"><use href="#icon-takeoff" /></svg><span id="flight-toggle-label">一键起飞</span><i class="button-indicator" aria-hidden="true"></i></button>
+              <div class="flight-meta"><span class="flight-state"><span class="status-dot"></span><span id="flight-phase" role="status" aria-live="polite">地面待机</span></span><span class="flight-altitude"><b id="flight-altitude">0.0</b><span>ALT / M</span></span></div>
+              <div class="flight-track" aria-hidden="true"><span id="flight-progress"></span></div>
+              <p class="control-disclaimer">起降与悬停为视觉模拟，不代表真实飞控</p>
+              </div>
+            </section>
+
+            <section class="control-section payload-section is-collapsed" aria-labelledby="payload-heading">
+              <div class="section-heading"><h3 id="payload-heading">下挂载荷</h3><span class="section-index">03</span><button class="section-toggle" type="button" aria-expanded="false" aria-controls="payload-body" aria-label="展开下挂载荷"></button></div>
+              <div class="section-body" id="payload-body">
+              <div id="payload-options" class="parts-grid payload-grid" role="group" aria-label="选择下挂载荷">
+                <button type="button" data-payload="camera" aria-pressed="true"><span class="part-code">GC</span><span>高清相机</span></button>
+                <button type="button" data-payload="ring" aria-pressed="false"><span class="part-code">LR</span><span>救生圈</span></button>
+                <button type="button" data-payload="speaker" aria-pressed="false"><span class="part-code">LS</span><span>喊话器</span></button>
+                <button type="button" data-payload="none" aria-pressed="false"><span class="part-code">—</span><span>无载荷</span></button>
+              </div>
+              <p id="payload-note" class="payload-note">三轴云台 · 4K 前向镜头，按市面同类机载相机近似重建。</p>
+              <button id="payload-demo" class="button payload-demo-button" type="button" aria-pressed="false"><svg aria-hidden="true"><use href="#icon-play" /></svg><span id="payload-demo-label">播放载荷教学</span><span class="payload-demo-meta">STEP BY STEP</span></button>
+              <p class="payload-hint">按市面常见方案近似重建 · 非认证任务载荷</p>
+              </div>
+            </section>
+
+            <section class="control-section parts-section is-collapsed" aria-labelledby="parts-heading">
+              <div class="section-heading"><h3 id="parts-heading">部件检查</h3><span class="section-index">04</span><button class="section-toggle" type="button" aria-expanded="false" aria-controls="parts-body" aria-label="展开部件检查"></button></div>
+              <div class="section-body" id="parts-body">
+              <div class="selected-part"><div class="selection-heading"><h4 id="selected-title">整机总览</h4><button id="selection-clear" class="icon-button" type="button" title="清除部件选择" aria-label="清除部件选择"><svg aria-hidden="true"><use href="#icon-close" /></svg></button></div><p id="selected-description">选择模型或下方部件，查看六轴无人机的结构细节。</p></div>
+              <div id="parts-list" class="parts-grid" aria-label="选择无人机部件">
+                <button type="button" data-part="fuselage" aria-pressed="false"><span class="part-code">BD</span><span>中央机身</span><svg aria-hidden="true"><use href="#icon-arrow" /></svg></button>
+                <button type="button" data-part="antenna" aria-pressed="false"><span class="part-code">AT</span><span>顶部天线</span><svg aria-hidden="true"><use href="#icon-arrow" /></svg></button>
+                <button type="button" data-part="arm-1" aria-pressed="false"><span class="part-code">01</span><span>一号机臂</span></button>
+                <button type="button" data-part="arm-2" aria-pressed="false"><span class="part-code">02</span><span>二号机臂</span></button>
+                <button type="button" data-part="arm-3" aria-pressed="false"><span class="part-code">03</span><span>三号机臂</span></button>
+                <button type="button" data-part="arm-4" aria-pressed="false"><span class="part-code">04</span><span>四号机臂</span></button>
+                <button type="button" data-part="arm-5" aria-pressed="false"><span class="part-code">05</span><span>五号机臂</span></button>
+                <button type="button" data-part="arm-6" aria-pressed="false"><span class="part-code">06</span><span>六号机臂</span></button>
+                <button type="button" data-part="landing-gear" aria-pressed="false"><span class="part-code">LG</span><span>双侧起落架</span><svg aria-hidden="true"><use href="#icon-arrow" /></svg></button>
+                <button type="button" data-part="payload" aria-pressed="false"><span class="part-code">PL</span><span>下挂载荷</span><svg aria-hidden="true"><use href="#icon-arrow" /></svg></button>
+              </div>
+              </div>
+            </section>
+          </div>
+          <footer class="inspector-footer"><div class="model-stats"><span>三角面 <b id="stats-triangles">—</b></span><span>部件 <b id="stats-parts">—</b></span></div><button id="reset" class="reset-button" type="button"><svg aria-hidden="true"><use href="#icon-reset" /></svg><span>重置视图与设置</span><span class="reset-label">RESET</span></button></footer>
+        </aside>
+      </main>
+    </div>
+
+    <dialog id="reference-dialog" aria-labelledby="reference-title" aria-describedby="reference-caption">
+      <div class="dialog-heading"><div><p class="eyebrow">REFERENCE / TWO VIEWS</p><h2 id="reference-title">重建参考图片</h2></div><button id="reference-close" class="icon-button" type="button" aria-label="关闭参考图片" title="关闭"><svg aria-hidden="true"><use href="#icon-close" /></svg></button></div>
+      <div class="reference-grid"><figure><div class="reference-image"><img src="/reference/render.webp" alt="白蓝六轴无人机外观渲染参考图" loading="lazy" /></div><figcaption><span class="part-code">01</span>外观参考<span>APPEARANCE</span></figcaption></figure><figure><div class="reference-image"><img src="/reference/structure.png" alt="六轴无人机机臂与机身布局结构参考图" loading="lazy" /></div><figcaption><span class="part-code">02</span>结构参考<span>STRUCTURE</span></figcaption></figure></div>
+      <p id="reference-caption" class="reference-caption">按图片比例重建 · 非工程尺寸</p>
+    </dialog>
+    <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script>
+      (() => {
+        const bar = document.getElementById('loading-progress');
+        let progress = 6, done = false;
+        window.__loadingComplete = () => { done = true; if (bar) bar.style.width = '100%'; };
+        const tick = () => {
+          if (done || !bar) return;
+          progress = Math.min(92, progress + (92 - progress) * .03 + .3);
+          bar.style.width = progress.toFixed(1) + '%';
+          requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      })();
+    </script>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

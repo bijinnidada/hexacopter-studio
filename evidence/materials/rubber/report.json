@@ -1,0 +1,85 @@
+{
+  "ok": true,
+  "verdict": "pass",
+  "confidence": 0.86,
+  "estimatedFidelity": 0.86,
+  "targetThreshold": 0.7,
+  "materialId": "rubber",
+  "sourceImage": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\evidence\\material-rubber.png",
+  "outDir": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\evidence\\materials\\rubber",
+  "palette": [
+    "#030509",
+    "#0B0C12",
+    "#5E6472",
+    "#191B23",
+    "#333740"
+  ],
+  "maps": {
+    "albedo": {
+      "path": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\evidence\\materials\\rubber\\rubber_albedo.png",
+      "url": "rubber_albedo.png",
+      "channel": "albedo",
+      "source": "reference-pixel-extraction"
+    },
+    "roughness": {
+      "path": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\evidence\\materials\\rubber\\rubber_roughness.png",
+      "url": "rubber_roughness.png",
+      "channel": "roughness",
+      "source": "reference-pixel-extraction"
+    },
+    "height": {
+      "path": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\evidence\\materials\\rubber\\rubber_height.png",
+      "url": "rubber_height.png",
+      "channel": "height",
+      "source": "reference-pixel-extraction"
+    },
+    "normal": {
+      "path": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\evidence\\materials\\rubber\\rubber_normal.png",
+      "url": "rubber_normal.png",
+      "channel": "normal",
+      "source": "reference-pixel-extraction"
+    },
+    "ao": {
+      "path": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\evidence\\materials\\rubber\\rubber_ao.png",
+      "url": "rubber_ao.png",
+      "channel": "ao",
+      "source": "reference-pixel-extraction"
+    }
+  },
+  "diagnostics": {
+    "sourceWidth": 65,
+    "sourceHeight": 19,
+    "mapSize": 256,
+    "cropBBoxPixels": {
+      "x": 0,
+      "y": 0,
+      "width": 65,
+      "height": 19
+    },
+    "mask": {
+      "backgroundColor": "#737989",
+      "backgroundNoise": 42.825,
+      "transparentPixelFraction": 0.0,
+      "foregroundCoverage": 0.6858
+    },
+    "mapStats": {
+      "valueRange": 0.3953,
+      "heightP90Gradient": 0.13935,
+      "roughnessBase": 0.723,
+      "roughnessVariation": 0.201,
+      "normalStrength": 0.32,
+      "blurRadius": 5
+    },
+    "palette": [
+      "#030509",
+      "#0B0C12",
+      "#5E6472",
+      "#191B23",
+      "#333740"
+    ]
+  },
+  "warnings": [
+    "single-image inverse rendering cannot prove true physical PBR; confidence is capped"
+  ],
+  "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+}

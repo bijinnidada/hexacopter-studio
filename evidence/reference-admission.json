@@ -1,0 +1,14 @@
+{
+  "admitted": true,
+  "reasons": [],
+  "provenance": {
+    "viewpoint": "reference-three-quarter",
+    "sourcePath": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\public\\reference\\render.png",
+    "width": 2848,
+    "height": 1600,
+    "foregroundCoverage": 0.7962,
+    "largestComponentFraction": 0.9995,
+    "pHash": 18373791103277107770,
+    "duplicateOfHash": null
+  }
+}

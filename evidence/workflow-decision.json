@@ -1,0 +1,8 @@
+{
+  "workflow": "manual-multiview-procedural-reconstruction",
+  "userApproval": "继续完成模型（推荐）",
+  "reason": "User explicitly approved leaving the automated img2threejs acceptance pipeline and continuing direct Three.js with manual multi-view review after background-mask and intentional-negative-space failures.",
+  "automatedPipelineCompleted": false,
+  "automatedEvidencePreserved": true,
+  "requiredManualChecks": ["six motors and twelve blades", "mirrored three-pair layout", "reference-proportional hull and antenna", "blue-white materials and mechanical details", "front/right/rear/left/top views", "selection, explosion, orbit, rotor animation, gear visibility, reset", "production build"]
+}

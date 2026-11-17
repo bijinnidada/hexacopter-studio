@@ -1,0 +1,86 @@
+{
+  "ok": true,
+  "verdict": "pass",
+  "confidence": 0.842,
+  "estimatedFidelity": 0.842,
+  "targetThreshold": 0.7,
+  "materialId": "silver",
+  "sourceImage": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\evidence\\material-silver.png",
+  "outDir": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\evidence\\materials\\silver",
+  "palette": [
+    "#73727D",
+    "#80808A",
+    "#9E9FA9",
+    "#8C8D97",
+    "#4C4D52"
+  ],
+  "maps": {
+    "albedo": {
+      "path": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\evidence\\materials\\silver\\silver_albedo.png",
+      "url": "silver_albedo.png",
+      "channel": "albedo",
+      "source": "reference-pixel-extraction"
+    },
+    "roughness": {
+      "path": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\evidence\\materials\\silver\\silver_roughness.png",
+      "url": "silver_roughness.png",
+      "channel": "roughness",
+      "source": "reference-pixel-extraction"
+    },
+    "height": {
+      "path": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\evidence\\materials\\silver\\silver_height.png",
+      "url": "silver_height.png",
+      "channel": "height",
+      "source": "reference-pixel-extraction"
+    },
+    "normal": {
+      "path": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\evidence\\materials\\silver\\silver_normal.png",
+      "url": "silver_normal.png",
+      "channel": "normal",
+      "source": "reference-pixel-extraction"
+    },
+    "ao": {
+      "path": "C:\\Users\\Administrator\\Documents\\Qoder\\2026-11-06\\194fb39d\\evidence\\materials\\silver\\silver_ao.png",
+      "url": "silver_ao.png",
+      "channel": "ao",
+      "source": "reference-pixel-extraction"
+    }
+  },
+  "diagnostics": {
+    "sourceWidth": 60,
+    "sourceHeight": 29,
+    "mapSize": 256,
+    "cropBBoxPixels": {
+      "x": 4,
+      "y": 0,
+      "width": 53,
+      "height": 29
+    },
+    "mask": {
+      "backgroundColor": "#CFCFD7",
+      "backgroundNoise": 26.476,
+      "transparentPixelFraction": 0.0,
+      "foregroundCoverage": 0.777
+    },
+    "mapStats": {
+      "valueRange": 0.2109,
+      "heightP90Gradient": 0.11908,
+      "roughnessBase": 0.722,
+      "roughnessVariation": 0.161,
+      "normalStrength": 0.296,
+      "blurRadius": 5
+    },
+    "palette": [
+      "#73727D",
+      "#80808A",
+      "#9E9FA9",
+      "#8C8D97",
+      "#4C4D52"
+    ]
+  },
+  "warnings": [
+    "single-image inverse rendering cannot prove true physical PBR; confidence is capped",
+    "low value range weakens height/roughness inference"
+  ],
+  "limitation": "single-image PBR extraction is an estimate; 70%+ extraction confidence still needs render screenshot review"
+}

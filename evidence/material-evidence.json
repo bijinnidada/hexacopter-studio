@@ -1,0 +1,74 @@
+{
+  "white": {
+    "confidence": 0.716,
+    "ok": true,
+    "crop": "evidence\\material-white.png",
+    "region": [
+      0.475,
+      0.325,
+      0.05,
+      0.025
+    ],
+    "report": "evidence\\materials\\white\\report.json"
+  },
+  "blue": {
+    "confidence": 0.789,
+    "ok": true,
+    "crop": "evidence\\material-blue.png",
+    "region": [
+      0.425,
+      0.385,
+      0.025,
+      0.018
+    ],
+    "report": "evidence\\materials\\blue\\report.json"
+  },
+  "silver": {
+    "confidence": 0.842,
+    "ok": true,
+    "crop": "evidence\\material-silver.png",
+    "region": [
+      0.334,
+      0.67,
+      0.021,
+      0.018
+    ],
+    "report": "evidence\\materials\\silver\\report.json"
+  },
+  "graphite": {
+    "confidence": 0.831,
+    "ok": true,
+    "crop": "evidence\\material-graphite.png",
+    "region": [
+      0.384,
+      0.662,
+      0.031,
+      0.018
+    ],
+    "report": "evidence\\materials\\graphite\\report.json"
+  },
+  "black": {
+    "confidence": 0.8,
+    "ok": true,
+    "crop": "evidence\\material-black.png",
+    "region": [
+      0.57,
+      0.513,
+      0.023,
+      0.017
+    ],
+    "report": "evidence\\materials\\black\\report.json"
+  },
+  "rubber": {
+    "confidence": 0.86,
+    "ok": true,
+    "crop": "evidence\\material-rubber.png",
+    "region": [
+      0.463,
+      0.85,
+      0.023,
+      0.012
+    ],
+    "report": "evidence\\materials\\rubber\\report.json"
+  }
+}

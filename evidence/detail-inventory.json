@@ -1,0 +1,249 @@
+{
+  "sourceImage": "public/reference/render.png",
+  "detailInventory": {
+    "scanMethod": "grid-3x3",
+    "targetMinDetails": 10,
+    "details": [
+      {
+        "id": "shell-seam",
+        "kind": "seam",
+        "description": "Circumferential dark joint between upper and lower white shell",
+        "region": {
+          "x": 0.35,
+          "y": 0.42,
+          "width": 0.28,
+          "height": 0.13,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "component",
+          "ref": "fuselage"
+        },
+        "evidenceRef": "full-object",
+        "confidence": 0.88
+      },
+      {
+        "id": "shoulder-inset",
+        "kind": "linework",
+        "description": "Two dark-blue elongated shoulder insets bounded by continuous curved geometry",
+        "region": {
+          "x": 0.37,
+          "y": 0.34,
+          "width": 0.19,
+          "height": 0.08,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "material",
+        "mapsTo": {
+          "type": "component",
+          "ref": "fuselage"
+        },
+        "evidenceRef": "full-object",
+        "confidence": 0.88
+      },
+      {
+        "id": "brand-print",
+        "kind": "decal",
+        "description": "Side lettering 翔云智航; bird symbol approximate",
+        "region": {
+          "x": 0.37,
+          "y": 0.395,
+          "width": 0.12,
+          "height": 0.07,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "material",
+        "mapsTo": {
+          "type": "component",
+          "ref": "fuselage"
+        },
+        "evidenceRef": "full-object",
+        "confidence": 0.75
+      },
+      {
+        "id": "nose-recess",
+        "kind": "hole",
+        "description": "Black sensor recess, split vertically by thin separators",
+        "region": {
+          "x": 0.55,
+          "y": 0.485,
+          "width": 0.07,
+          "height": 0.05,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "component",
+          "ref": "nose-opening"
+        },
+        "evidenceRef": "full-object",
+        "confidence": 0.88
+      },
+      {
+        "id": "antenna-bevel",
+        "kind": "bevel",
+        "description": "Stepped white antenna cap edge",
+        "region": {
+          "x": 0.355,
+          "y": 0.26,
+          "width": 0.09,
+          "height": 0.08,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "component",
+          "ref": "antenna-rim"
+        },
+        "evidenceRef": "full-object",
+        "confidence": 0.88
+      },
+      {
+        "id": "motor-bolts",
+        "kind": "fastener",
+        "description": "Two cap bolts per rotor and four clamp bolts per mount",
+        "region": {
+          "x": 0.31,
+          "y": 0.62,
+          "width": 0.07,
+          "height": 0.09,
+          "units": "normalized"
+        },
+        "scale": "micro",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "component",
+          "ref": "motor-1"
+        },
+        "evidenceRef": "full-object",
+        "confidence": 0.88
+      },
+      {
+        "id": "motor-vents",
+        "kind": "groove",
+        "description": "Repeated radial motor crown cooling slots",
+        "region": {
+          "x": 0.32,
+          "y": 0.65,
+          "width": 0.04,
+          "height": 0.03,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "component",
+          "ref": "motor-1"
+        },
+        "evidenceRef": "full-object",
+        "confidence": 0.88
+      },
+      {
+        "id": "mount-collar",
+        "kind": "ridge",
+        "description": "Blue cylindrical mount flange and bottom step",
+        "region": {
+          "x": 0.32,
+          "y": 0.68,
+          "width": 0.055,
+          "height": 0.06,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "component",
+          "ref": "motor-mount-1"
+        },
+        "evidenceRef": "full-object",
+        "confidence": 0.88
+      },
+      {
+        "id": "blade-tip",
+        "kind": "linework",
+        "description": "White distal blade tips on twelve blades",
+        "region": {
+          "x": 0.47,
+          "y": 0.675,
+          "width": 0.015,
+          "height": 0.015,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "material",
+        "mapsTo": {
+          "type": "component",
+          "ref": "rotor-1"
+        },
+        "evidenceRef": "full-object",
+        "confidence": 0.88
+      },
+      {
+        "id": "arm-collar",
+        "kind": "ridge",
+        "description": "Blue root socket ring and exposed silver tube",
+        "region": {
+          "x": 0.42,
+          "y": 0.49,
+          "width": 0.035,
+          "height": 0.055,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "component",
+          "ref": "arm-1"
+        },
+        "evidenceRef": "full-object",
+        "confidence": 0.88
+      },
+      {
+        "id": "rubber-foot",
+        "kind": "bevel",
+        "description": "Four black landing contact foot caps",
+        "region": {
+          "x": 0.46,
+          "y": 0.82,
+          "width": 0.03,
+          "height": 0.04,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "component",
+          "ref": "landing-gear"
+        },
+        "evidenceRef": "full-object",
+        "confidence": 0.88
+      },
+      {
+        "id": "panel-slot",
+        "kind": "groove",
+        "description": "Short gray horizontal side access slot",
+        "region": {
+          "x": 0.4,
+          "y": 0.448,
+          "width": 0.02,
+          "height": 0.012,
+          "units": "normalized"
+        },
+        "scale": "meso",
+        "affects": "geometry",
+        "mapsTo": {
+          "type": "component",
+          "ref": "fuselage"
+        },
+        "evidenceRef": "full-object",
+        "confidence": 0.88
+      }
+    ]
+  }
+}
